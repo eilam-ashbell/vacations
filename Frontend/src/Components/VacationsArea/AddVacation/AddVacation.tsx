@@ -10,10 +10,10 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 
 function AddVacation(): JSX.Element {
 
-    const { register, handleSubmit, formState, setValue } = useForm<VacationModel>()
+    const { register, handleSubmit, formState, setValue, getValues } = useForm<VacationModel>()
     const navigate = useNavigate()
     const [image, setImage] = useState<string>()
-
+    const [sDate, setSDate] = useState<string>('')
 
     async function send(vacation: VacationModel) {
         try {
@@ -30,6 +30,10 @@ function AddVacation(): JSX.Element {
             // notify message
             notifyService.success(err)
         }
+    }
+
+    function setDate(e: React.FormEvent<HTMLInputElement>) {
+        setSDate(e.currentTarget.value)        
     }
 
     function onImageChange(e: React.FormEvent<HTMLInputElement>) {
@@ -72,6 +76,7 @@ function AddVacation(): JSX.Element {
                         min={formUtils.disablePastDate(0)}
                         type="date"
                         id="startDate"
+                        onInput={(e) => setDate(e)}
                         {...register("startDate", {
                             required: { value: true, message: "Start date is required" },
                             minLength: { value: 8, message: "Start date is too short" },
@@ -82,13 +87,13 @@ function AddVacation(): JSX.Element {
                 <div className="input-label-wrapper">
                     <label htmlFor="endDate">end on</label>
                     <input
-                        min={formUtils.disablePastDate(1)}
+                        min={sDate}
                         type="date"
                         id="endDate"
                         {...register("endDate", {
-                            required: { value: true, message: "Start date is required" },
-                            minLength: { value: 8, message: "Start date is too short" },
-                            maxLength: { value: 100, message: "Start date is too long" },
+                            required: { value: true, message: "End date is required" },
+                            minLength: { value: 8, message: "End date is too short" },
+                            maxLength: { value: 100, message: "End date is too long" },
                         })} />
                     <span className="hint">{formState.errors.endDate?.message}</span>
                 </div>
@@ -96,7 +101,8 @@ function AddVacation(): JSX.Element {
                     <label htmlFor="price">price</label>
                     <input type="number" id="price" step="0.01"{...register("price", {
                         required: { value: true, message: "Price is required" },
-                        min: { value: 0, message: "Username is too short" },
+                        min: { value: 0, message: "Price can't be negative" },
+                        max: {value: 9999.99, message: "Price must be under 9999.99"},
                     })} />
                     <span className="hint">{formState.errors.price?.message}</span>
                 </div>

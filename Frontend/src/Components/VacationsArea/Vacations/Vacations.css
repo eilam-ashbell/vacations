@@ -20,6 +20,7 @@
 .Vacations .action-nav {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     column-gap: 8px;
     padding: 16px 0px;
     margin-bottom: 32px;
@@ -31,6 +32,7 @@
     color: var(--Neutral-700);
     justify-content: center;
     align-items: center;
+    min-width: fit-content;
 }
 .Vacations .action-nav button:hover {
     border: 1px solid var(--Prime-500);
@@ -47,4 +49,5 @@
     display: flex;
     column-gap: 8px;
     margin-left: auto;
+    flex-wrap: wrap;
 }

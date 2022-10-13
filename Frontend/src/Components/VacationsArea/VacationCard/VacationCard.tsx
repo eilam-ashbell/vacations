@@ -1,17 +1,15 @@
 import config from "../../../Utils/Config";
 import FollowBtn from "../FollowBtn/FollowBtn";
 import "./VacationCard.css";
-import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import VacationForUserModel from "../../../Models/vacationForUserModel";
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
-import { Button } from "@mui/material";
-import { color } from "@mui/system";
-import { VacationsAction, VacationsActionType, vacationsStore } from "../../../Redux/VacationsState";
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from "@mui/material";
 import { authStore } from "../../../Redux/AuthState";
 import vacationsService from "../../../Services/VacationsService";
 import { useNavigate } from "react-router-dom";
 import EventIcon from '@mui/icons-material/Event';
+import { useState } from "react";
 interface VacationCardProps {
     vacationData: VacationForUserModel;
 }
@@ -28,6 +26,7 @@ function VacationCard(props: VacationCardProps): JSX.Element {
     const bgImageStyle = {
         backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0)80%), url(${config.serverStaticsImages + props.vacationData.imageName})`
     }
+    const [open, setOpen] = useState<boolean>(false);
 
     const adminBtnStyle = {
         backgroundColor: "white",
@@ -44,6 +43,19 @@ function VacationCard(props: VacationCardProps): JSX.Element {
             boxShadow: 'none',
         },
     }
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    const handleConfirm = () => {
+        vacationsService.deleteVacation(props.vacationData.vacationId)
+        setOpen(false);
+    };
 
     const adminBtnIconsStyle = {
         width: "14px",
@@ -68,7 +80,7 @@ function VacationCard(props: VacationCardProps): JSX.Element {
                             size="small"
                             startIcon={<DeleteIcon sx={adminBtnIconsStyle} />}
                             sx={adminBtnStyle}
-                            onClick={() => { vacationsService.deleteVacation(props.vacationData.vacationId) }}>
+                            onClick={handleClickOpen}>
                             Delete
                         </Button>
                         <Button
@@ -80,6 +92,27 @@ function VacationCard(props: VacationCardProps): JSX.Element {
                         >
                             Edit
                         </Button>
+                        <Dialog
+                            open={open}
+                            onClose={handleClose}
+                            aria-labelledby="alert-dialog-title"
+                            aria-describedby="alert-dialog-description"
+                        >
+                            <DialogTitle id="alert-dialog-title">
+                                {"Are you sure you want do DELETE?"}
+                            </DialogTitle>
+                            <DialogContent>
+                                <DialogContentText id="alert-dialog-description">
+                                    {`By pressing DELETE you are confirm delete vacation to '${props.vacationData.destination}' between ${new Date(props.vacationData.startDate).toLocaleDateString()} - ${new Date(props.vacationData.endDate).toLocaleDateString()}`} 
+                                </DialogContentText>
+                            </DialogContent>
+                            <DialogActions>
+                                <Button onClick={handleClose}>Cancel</Button>
+                                <Button onClick={handleConfirm} autoFocus>
+                                    Delete
+                                </Button>
+                            </DialogActions>
+                        </Dialog>
                     </div>
                 }
                 <h3>{props.vacationData.destination}</h3>

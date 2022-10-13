@@ -1,8 +1,7 @@
 .VacationCard {
     display: flex;
     flex-direction: column;
-    width: 32%;
-    min-width: 320px;
+    width: 362.66px;
     height: 508px;
     border: 1px solid white;
     border-radius: 6px;
@@ -10,6 +9,8 @@
     overflow: hidden;
     position: relative;
     padding-bottom: 16px;
+    flex-grow: 1;
+    flex-shrink: 1;
 }
 .VacationCard .bg-image {
     display: flex;
