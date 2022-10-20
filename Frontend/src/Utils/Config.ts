@@ -2,6 +2,7 @@ class Config {
     public serverUrl = "http://localhost:3001/";
     public serverStaticsImages = this.serverUrl + "static/images/"
     public serverStaticsIcons = this.serverUrl + "static/icons/"
+    public serverStaticsGifs = this.serverUrl + "static/gifs/"
     public routes = {
         getAllVacations: this.serverUrl + "api/vacations/",
         getVacation: this.serverUrl + "api/vacation/",

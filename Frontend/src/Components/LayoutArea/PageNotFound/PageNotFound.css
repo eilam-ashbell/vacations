@@ -1,3 +1,17 @@
 .PageNotFound {
-	
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 16px;
+    color: #50BFFC;
+}
+
+.PageNotFound img {
+    mix-blend-mode:darken;
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 40px;
+    transform: translateX(10%);
+    opacity: 0.8;
 }
