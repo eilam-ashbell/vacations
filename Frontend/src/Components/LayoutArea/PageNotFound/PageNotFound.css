@@ -15,3 +15,14 @@
     transform: translateX(10%);
     opacity: 0.8;
 }
+
+.PageNotFound button {
+    background-color: var(--Prime-500);
+    border: 0px solid transparent;
+    color: white;
+}
+
+.PageNotFound button:hover {
+    background-color: var(--Prime-700);
+
+}

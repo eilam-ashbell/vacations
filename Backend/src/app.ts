@@ -14,13 +14,6 @@ import path from "path";
 // Create server object
 const server = express();
 
-// // Securing DoS attacks
-// server.use("/api/", expressRateLimit({
-//     windowMs: 100, // Window time
-//     max: 1, // Max request per window time
-//     message: "Too many requests" // Message to alert when detecting more then max requests over window time
-// }))
-
 // Allow cors
 server.use(cors());
 

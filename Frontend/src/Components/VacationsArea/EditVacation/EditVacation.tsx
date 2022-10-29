@@ -1,4 +1,4 @@
-import React, { EventHandler, SyntheticEvent, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import VacationModel from "../../../Models/vacationModel";

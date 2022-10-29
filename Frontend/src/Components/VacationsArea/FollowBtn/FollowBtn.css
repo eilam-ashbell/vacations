@@ -2,7 +2,6 @@
     position: absolute;
     top: 0px;
     left: -24px;
-    /* transform: translate(-50%, -50%); */
     transform: scale(0.5);
 }
 
@@ -36,24 +35,18 @@
     width: 90px;
     top: -14px;
     left: -5px;
-    /* transform: translate(-50%, -50%); */
 }
 .FollowBtn .text {
     font-size: 21px;
     margin-left: 48px;
     color: grey;
-    /* font-family: "Montserrat", sans-serif; */
 }
 .FollowBtn .numb {
-    /* content: "12"; */
     font-size: 21px;
-    /* margin-left: 7px; */
     font-weight: 600;
     color: #9c9496;
-    /* font-family: sans-serif; */
 }
 .FollowBtn .numb.heart-active {
-    /* content: "13"; */
     color: #000;
 }
 .FollowBtn .text.heart-active {

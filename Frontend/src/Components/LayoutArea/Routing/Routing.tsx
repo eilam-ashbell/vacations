@@ -25,7 +25,7 @@ function Routing(): JSX.Element {
             <Routes>
 
                 {/* Vacations page */}
-                <Route path="/" element={<RequireAuth children={<Vacations />} />} />
+                <Route path="/" element={<Navigate to="/home" />} />                
                 <Route path="/home" element={<RequireAuth children={<Vacations />} />} />
 
                 {/* Edit vacation form for admin */}

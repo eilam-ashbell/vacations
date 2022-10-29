@@ -1,7 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import auth from "../2-utils/auth";
 import { ForbiddenError, UnauthorizedError } from "../4-models/client-errors";
-import RoleModel from "../4-models/role-model";
 
 async function verifyAdmin(request: Request, response: Response, next: NextFunction ): Promise<void> {
 

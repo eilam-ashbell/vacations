@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import UserModel from "../../../Models/userModel";
 import VacationForUserModel from "../../../Models/vacationForUserModel";
 import { authStore } from "../../../Redux/AuthState";
-import { vacationsStore } from "../../../Redux/VacationsState";
 import notifyService from "../../../Services/NotifyService";
 import vacationsService from "../../../Services/VacationsService";
 import config from "../../../Utils/Config";

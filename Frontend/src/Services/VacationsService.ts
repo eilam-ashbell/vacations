@@ -131,7 +131,6 @@ class VacationService {
         formData.append("endDate", vacation.endDate);
         formData.append("price", vacation.price.toString());
         formData.append("image", vacation.image[0]);
-        // formData.append("imageName", vacation.imageName)
 
         const response = await axios.post<VacationModel>(
             config.routes.addVacation,

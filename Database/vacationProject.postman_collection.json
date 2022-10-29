@@ -1,0 +1,345 @@
+{
+	"info": {
+		"_postman_id": "2c903230-0a2a-45fd-b34a-0639b3da797f",
+		"name": "vacationProject",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22434116"
+	},
+	"item": [
+		{
+			"name": "GET all vacations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}vacations/:useruuid",
+					"host": [
+						"{{BASE_URL}}vacations"
+					],
+					"path": [
+						":useruuid"
+					],
+					"variable": [
+						{
+							"key": "useruuid",
+							"value": "dab0d6c6-9008-4ed6-a31a-22d18786bd33"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET vacation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}vacation/:vacationId",
+					"host": [
+						"{{BASE_URL}}vacation"
+					],
+					"path": [
+						":vacationId"
+					],
+					"variable": [
+						{
+							"key": "vacationId",
+							"value": "44"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add vacation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "destination",
+							"value": "Rome",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Lets go to Rome",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/Users/eilamashbell/Downloads/20273-Roman-Forum.webp"
+						},
+						{
+							"key": "imageName",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "startDate",
+							"value": "2022-10-04",
+							"type": "text"
+						},
+						{
+							"key": "endDate",
+							"value": "2022-11-15",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "200",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BASE_URL}}vacation",
+					"host": [
+						"{{BASE_URL}}vacation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update vacation",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "destination",
+							"value": "Rome",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Lets go to Rome",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/Users/eilamashbell/Downloads/20220403 spring event.jpeg"
+						},
+						{
+							"key": "imageName",
+							"value": "66476bbf-455a-4c7b-a1a5-246a9334ec87.webp",
+							"type": "text"
+						},
+						{
+							"key": "startDate",
+							"value": "2022-10-04",
+							"type": "text"
+						},
+						{
+							"key": "endDate",
+							"value": "2022-11-15",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "200",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BASE_URL}}vacations/:vacationId",
+					"host": [
+						"{{BASE_URL}}vacations"
+					],
+					"path": [
+						":vacationId"
+					],
+					"variable": [
+						{
+							"key": "vacationId",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete vacation",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}vacations/:vacationId",
+					"host": [
+						"{{BASE_URL}}vacations"
+					],
+					"path": [
+						":vacationId"
+					],
+					"variable": [
+						{
+							"key": "vacationId",
+							"value": "64"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET vacations report",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}report",
+					"host": [
+						"{{BASE_URL}}report"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add follower",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userUuid\": \"e6e872e3-c736-44e7-9b36-5800fb37625b\",\n    \"vacationId\": 44\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}followers",
+					"host": [
+						"{{BASE_URL}}followers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "remove follower",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userUuid\": \"e6e872e3-c736-44e7-9b36-5800fb37625b\",\n    \"vacationId\": 44\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}followers",
+					"host": [
+						"{{BASE_URL}}followers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"test\",\n    \"lastName\": \"user\",\n    \"username\": \"<p>tut3u23</p>\",\n    \"password\": \"12tu34\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}auth/register",
+					"host": [
+						"{{BASE_URL}}auth"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"aeae\",\n    \"password\": \"aeae\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BASE_URL}}auth/login",
+					"host": [
+						"{{BASE_URL}}auth"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJVdWlkIjoiZTZlODcyZTMtYzczNi00NGU3LTliMzYtNTgwMGZiMzc2MjViIiwiZmlyc3ROYW1lIjoiRWlsYW0iLCJsYXN0TmFtZSI6IkFzaGJlbGwiLCJ1c2VybmFtZSI6ImVpbGFtQXNoIiwicm9sZUlkIjoxfSwiaWF0IjoxNjY3MDIzNzEzLCJleHAiOjE2NjcwMjczMTN9.dTaj4UmxGp9E5DPC3asMcMgT5Th9T3zTeRQWUVXLUFQ",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "http://localhost:3001/api/",
+			"type": "string"
+		}
+	]
+}

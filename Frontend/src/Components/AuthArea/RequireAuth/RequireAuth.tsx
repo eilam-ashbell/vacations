@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import { authStore } from "../../../Redux/AuthState";
 import "./RequireAuth.css";
 
@@ -9,7 +8,6 @@ interface RequireAuthProps {
 
 function RequireAuth(props: RequireAuthProps): JSX.Element {
 
-    const navigate = useNavigate()
     const location = useLocation()
 
     return (

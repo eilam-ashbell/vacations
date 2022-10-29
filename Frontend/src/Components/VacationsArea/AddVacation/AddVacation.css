@@ -115,7 +115,6 @@ form textarea {
     width: max-content;
 }
 .AddVacation form input#image {
-    /* position: absolute; */
     opacity: 0%;
 }
 

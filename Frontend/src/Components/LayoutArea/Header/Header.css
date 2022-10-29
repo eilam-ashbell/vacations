@@ -36,10 +36,7 @@
 .Header button {
     background-color: rgba(0,0,0,0.15);
     border: 0px solid transparent;
-    /* padding: 6px 16px; */
-    /* border-radius: 4px; */
     color: white;
-    /* font-weight: 200; */
 }
 
 .Header button:hover {

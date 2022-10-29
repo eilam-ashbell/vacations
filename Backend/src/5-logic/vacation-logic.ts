@@ -12,13 +12,6 @@ import safeDelete from "../2-utils/safe-delete";
 import config from "../2-utils/config";
 import FollowerModel from "../4-models/follower-model";
 
-// GET all vacations data
-async function getAllVacations(): Promise<VacationModel[]> {
-    const sql = "SELECT * FROM vacations";
-    const vacations = await dal.execute(sql, []);
-    return vacations;
-}
-
 // GET all vacation for a specific user with followers data
 async function getAllVacationsForUser(
     userUuid: string
@@ -152,7 +145,6 @@ async function getVacationsDataToReport(): Promise<VacationFollowersModel[]> {
 }
 
 export default {
-    getAllVacations,
     getAllVacationsForUser,
     getVacation,
     addVacation,

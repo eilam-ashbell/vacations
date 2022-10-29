@@ -1,6 +1,4 @@
 import { Notyf } from "notyf";
-import { type } from "os";
-
 class NotifyService {
 
     // Private field for displaying notifications
